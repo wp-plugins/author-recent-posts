@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+
+.author_post { width: 100%; list-style: none;}
+.author_post li {  list-style: none; padding: 0 0 10px 0; clear:both;}
+.author_left {float:left; margin-right: 10px; display:table;}
+.author_right:before,.author_right:after {content:''; display:table;}
+.author_right:after {clear:both;}
+
+
+
