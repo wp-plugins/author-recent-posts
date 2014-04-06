@@ -14,6 +14,8 @@ This Plugin contains a responsive Widget for showing off recent posts by an auth
 
 With this Plugin you can choose number of posts to display, show or hide featured image, dimensions of featured image, option to choose display post date or not. You can also show author name in title using '[author]' shortcode in Widget options. We will adding more options in the next version.
 
+For more detail visit <a href="http://dev.fellowtuts.com/download/plugins/author-recent-posts/">author recent posts plugin page</a>
+
 == Installation ==
 
 This section describes how to install the Plugin and get it working.
