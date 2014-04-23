@@ -1,9 +1,10 @@
 === Author Recent Posts ===
 Contributors: amitaits, kka284556
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=amitsonkhiya%40hotmail%2ecom&lc=US&item_name=Fellow%20Tuts%20%2d%20Plugin%20Development%20Support&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: author, authors, post, posts, recent, widget, thumbnail, thumbnails, sidebar, plugin, wordpress
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 1.0
+Tested up to: 3.9
+Stable tag: 1.1
 License: GPLv2 or later
 
 Author Recent Posts shows recent posts by an author on his post as a responsive sidebar Widget
@@ -12,7 +13,7 @@ Author Recent Posts shows recent posts by an author on his post as a responsive 
 
 This Plugin contains a responsive Widget for showing off recent posts by an author on all the single post pages created by that author. This Plugin is useful when you have multiple authors on your WordPress blog and you wish to display list of posts only created by particular author of the post.
 
-With this Plugin you can choose number of posts to display, show or hide featured image, dimensions of featured image, option to choose display post date or not. You can also show author name in title using '[author]' shortcode in Widget options. We will adding more options in the next version.
+With this Plugin you can choose number of posts to display, show or hide featured image, alternate image url, dimensions of featured image, option to choose display post date or not. You can also show author name in title using '[author]' shortcode in Widget options. We will adding more options in the next version.
 
 For more detail visit <a href="http://dev.fellowtuts.com/download/plugins/author-recent-posts/">author recent posts plugin page</a>
 
@@ -50,15 +51,21 @@ No, this Plugin doesn't have any CSS rule for coloring of links and texts. It ju
 2. Viewing the Widget with thumbnail
 3. Viewing the Widget without thumbnail
 4. Specify '[author]' shortcode in Widget options
-5. Viewing author name in Widget
+5. Viewing author name in Widget 
 
 == Changelog ==
+
+= 1.1 =
+* Added option to specify alternate image url to show alternate image if featured image is not specified in post
 
 = 1.0 =
 * Let you specify a title with or without author name, set number of posts, enable/disable featured image and it's size, display or not post date
 
 
 == Upgrade Notice ==
+
+= 1.1 =
+Alternate image url facility added
 
 = 1.0 =
 Initial Release

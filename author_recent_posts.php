@@ -3,7 +3,7 @@
 Plugin Name: Author Recent Posts
 Plugin URI: http://dev.fellowtuts.com/author-recent-posts-plugin/
 Description: Author Recent Posts plugin shows recent posts by an author on his/her posts as a responsive sidebar widget
-Version: 1.0
+Version: 1.1
 Author: Amit Sonkhiya, Kamal Agrawal
 Author URI: http://dev.fellowtuts.com
 License: GPLv2 or later
@@ -17,7 +17,7 @@ License: GPLv2 or later
 		parent::__construct(
 		'author_recent_posts', // Base ID
 			'Author Recent Posts', // Name
-			array( 'description' => __( 'Display recent posts by an author on his/her posts as a responsive sidebar widget', 'text_domain' ), ) // Args
+			array( 'description' => __( 'Display recent posts by an author on his/her posts as a responsive sidebar widget', 'text_domain' ) ) // Args
 		);
 	}
 	
@@ -31,6 +31,7 @@ License: GPLv2 or later
 	$showthumbnail = isset( $instance['showthumbnail'] ) ? (bool) $instance['showthumbnail'] : false;
 	$width = isset( $instance['width'] ) ?  esc_attr($instance['width']) : '';
 	$height = isset( $instance['height'] ) ? esc_attr( $instance['height']) : '';
+	$alternateImg = isset( $instance['alternateImg'] ) ? esc_attr( $instance['alternateImg']) : '';
 	
 		?>
 	<p>
@@ -57,6 +58,12 @@ License: GPLv2 or later
 		<label for="<?php echo $this->get_field_id( 'height' ); ?>"><?php _e( 'Height: ' ); ?></label> 
 		<input  size="3"  id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" type="text" value="<?php echo $height; ?>" /> px
 		</p>
+        
+          <p>
+	<label for="<?php echo $this->get_field_id('alternateImg'); ?>"><?php _e('Alternate image url:', 'wp_widget_plugin'); ?></label>
+	<input class="widefat"  id="<?php echo $this->get_field_id('alternateImg'); ?>" name="<?php echo $this->get_field_name('alternateImg'); ?>" type="text"   value="<?php echo $alternateImg; ?>" />
+	</p>
+        
         </div>
     
     <p><input class="checkbox" type="checkbox" <?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
@@ -74,6 +81,7 @@ License: GPLv2 or later
 		$old_instance['showthumbnail'] = isset( $new_instance['showthumbnail'] ) ? (bool) $new_instance['showthumbnail'] : false;
 		$old_instance['width'] = isset($new_instance['width'])?$new_instance['width']:'';
 		$old_instance['height'] = isset($new_instance['height'])?$new_instance['height']:'';
+		$old_instance['alternateImg'] = isset($new_instance['alternateImg'])?$new_instance['alternateImg']:'';
 		$old_instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
 		
 		return $old_instance ;
@@ -92,7 +100,7 @@ License: GPLv2 or later
 		$showthumbnail = isset( $instance['showthumbnail'] ) ? $instance['showthumbnail'] : false;
 		$width_image = empty($instance['width']) ? '50' : apply_filters('widget_image_width', $instance['width']);
         $height_image = empty($instance['height']) ? '50' : apply_filters('widget_image_height', $instance['height']);
-		
+		$alternateImg = !empty($instance['alternateImg']) ? $instance['alternateImg']:'';
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
 		
 	
@@ -117,15 +125,20 @@ License: GPLv2 or later
             <?php if($showthumbnail) : ?>
             <div class="author_left" style="width:<?php echo $width_image; ?>px;height:<?php echo $height_image; ?>px;">           
             <?php
-			if( $showthumbnail && has_post_thumbnail( $authors_post->ID )){
-				
+			if( $showthumbnail ){
+				if( has_post_thumbnail( $authors_post->ID )){
 				?>
                  <a href="<?php echo get_permalink( $authors_post->ID ) ; ?>">
                 <?php
 				echo get_the_post_thumbnail($authors_post->ID, array($width_image,$height_image)); ?>
                 </a>
-			<?php }
-			 ?>
+			<?php }elseif($alternateImg != ''){?>
+				
+				<a href="<?php echo get_permalink( $authors_post->ID ) ; ?>">
+                <img src="<?php echo $alternateImg; ?>" width="<?php echo $width_image; ?>" height="<?php echo $height_image; ?>" />
+                </a>
+				
+			<?php } }?>
             
             </div>
             <?php endif; ?>
