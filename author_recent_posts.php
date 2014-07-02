@@ -135,7 +135,7 @@ License: GPLv2 or later
 			<?php }elseif($alternateImg != ''){?>
 				
 				<a href="<?php echo get_permalink( $authors_post->ID ) ; ?>">
-                <img src="<?php echo $alternateImg; ?>" width="<?php echo $width_image; ?>" height="<?php echo $height_image; ?>" />
+                <img src="<?php echo $alternateImg; ?>" width="<?php echo $width_image; ?>" height="<?php echo $height_image; ?>" class="wp-post-image" />
                 </a>
 				
 			<?php } }?>
