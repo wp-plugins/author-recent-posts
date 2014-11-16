@@ -9,7 +9,7 @@
   
 **Tested up to:** 4.0
   
-**Stable tag:** 1.2
+**Stable tag:** 1.3
   
 **License:** GPLv2 or later
   
@@ -82,6 +82,9 @@ No, this Plugin doesn't have any CSS rule for coloring of links and texts. It ju
 
 ## Changelog ##
 
+### 1.3 ###
+* plugin updated to show post date in format as set in WordPress setting
+
 ### 1.2 ###
 * Bugfix: Posts in sidebar and current post were displaying same publish date. Issue fixed
 
@@ -93,6 +96,9 @@ No, this Plugin doesn't have any CSS rule for coloring of links and texts. It ju
 
 
 ## Upgrade Notice ##
+
+### 1.3 ###
+Update: Post date format is same as given in WordPress setting
 
 ### 1.2 ###
 Bugfix: Post date issue fixed

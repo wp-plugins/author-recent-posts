@@ -3,7 +3,7 @@
 Plugin Name: Author Recent Posts
 Plugin URI: http://dev.fellowtuts.com/author-recent-posts-plugin/
 Description: Author Recent Posts plugin shows recent posts by an author on his/her posts as a responsive sidebar widget
-Version: 1.2
+Version: 1.3
 Author: Amit Sonkhiya, Kamal Agrawal
 Author URI: http://dev.fellowtuts.com
 License: GPLv2 or later
@@ -148,7 +148,7 @@ License: GPLv2 or later
             echo apply_filters( 'the_title', $authors_post->post_title, $authors_post->ID ); ?>
             </a>
 			<?php if ( $show_date ) : ?>
-				<br /><span class="post-date"><small><?php echo date('F d, Y',strtotime($authors_post->post_date)); ?></small></span>
+				<br /><span class="post-date"><small><?php echo date(get_option('date_format'),strtotime($authors_post->post_date)); ?></small></span>
 			<?php endif; ?>
             </div>
 			</li>
